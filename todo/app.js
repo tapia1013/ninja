@@ -43,26 +43,26 @@ list.addEventListener('click', (e) => {
 
 //filter
 const filterTodos = (term) => {
-  console.log(Array.from(list.children));
-  //   Array.from(list.children)
-  //     .filter((todo) => !todo.textContent.toLowerCase().includes(term))
-  //     .forEach((todo) => todo.classList.add('filtered'))
+  // console.log(Array.from(list.children));
+  Array.from(list.children)
+    .filter((todo) => !todo.textContent.toLowerCase().includes(term))
+    .forEach((todo) => todo.classList.add('filtered'))
 
-  //   Array.from(list.children)
-  //     .filter(todo => todo.textContent.toLowerCase().includes(term))
-  //     .forEach(todo => todo.classList.remove('filtered'))
+  Array.from(list.children)
+    .filter(todo => todo.textContent.toLowerCase().includes(term))
+    .forEach(todo => todo.classList.remove('filtered'))
 
-  const li = [...list.children];
-
-  li.filter(todo => !todo.textContent.toLowerCase().includes(term)).forEach(todo => todo.classList.add('filtered'))
-  li.filter(todo => todo.textContent.toLowerCase().includes(term)).forEach(todo => todo.classList.remove('filtered'))
+  // const li = [...list.children];
+  // console.log(li);
+  // li.filter(todo => (!todo.textContent.toLowerCase().includes(term))).forEach(todo => (todo.classList.add('filtered')))
+  // li.filter(todo => (todo.textContent.toLowerCase().includes(term))).forEach(todo => (todo.classList.remove('filtered')))
 
 }
 
 
 // keyup
 search.addEventListener('keyup', () => {
-  const term = search.value.toLowerCase();
+  const term = search.value.trim().toLowerCase();
   filterTodos(term)
 })
 
